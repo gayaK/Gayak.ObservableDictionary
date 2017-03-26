@@ -21,12 +21,12 @@ namespace Gayak.Collections
 
         public event NotifyCollectionChangedEventHandler CollectionChanged = (_, __) => { };
 
+        protected virtual event PropertyChangedEventHandler PropertyChanged = (_, __) => { };
         event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
         {
             add => this.PropertyChanged += value;
             remove => this.PropertyChanged -= value;
         }
-        protected virtual event PropertyChangedEventHandler PropertyChanged = (_, __) => { };
 
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
